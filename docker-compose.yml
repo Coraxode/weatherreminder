@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  weatherreminder:
+    build: .
+    restart: always
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+  redis:
+    image: redis
+    container_name: redis
+    command: redis-server
+  celery-worker:
+    build: .
+    command: celery -A weatherreminder worker --loglevel=INFO
+    links:
+      - redis
+    depends_on:
+      - redis
+      - weatherreminder
+  celery-beat:
+    build: .
+    command: celery -A weatherreminder beat --loglevel=INFO
+    links:
+      - redis
+    depends_on:
+      - redis
+      - weatherreminder
+    
