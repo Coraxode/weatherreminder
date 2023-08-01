@@ -1,6 +1,6 @@
 # DjangoWeatherReminder
 
-This Django Newsfeed API provides endpoints to interact with the newsfeed application's data. It allows authenticated users to retrieve, create, update, and delete subscriptions to cities.
+DjangoWeatherReminder provides endpoints to interact with the newsfeed application's data. It allows authenticated users to retrieve, create, update, and delete subscriptions to cities.
 
 ### Usage
 * configure ```.env``` file
@@ -26,7 +26,7 @@ This Django Newsfeed API provides endpoints to interact with the newsfeed applic
     * URL: ```/api/auth/jwt/refresh/```
     * Method: POST
     * Parameters: refresh JWT token
-    * Description: Get access JWT token with given refresh token
+    * Description: Update access JWT token with given refresh token
 
 * __Get Cities List__
     * URL: ```/api/cities/```
